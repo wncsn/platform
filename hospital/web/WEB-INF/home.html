@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+    <title>HOSPITAL</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+
+    <style>
+        body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: black;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        /* Center the image and position the close button */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* Add Zoom Animation */
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+
+        @-webkit-keyframes animatezoom {
+            from {-webkit-transform: scale(0)} 
+            to {-webkit-transform: scale(1)}
+        }
+
+        @keyframes animatezoom {
+            from {transform: scale(0)} 
+            to {transform: scale(1)}
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+        #map {
+            height: 20%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 20%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <body class="w3-light-grey">
+
+        <!-- w3-content defines a container for fixed size centered content, 
+        and is wrapped around the whole page content, except for the footer in this example -->
+        <div class="w3-content" style="max-width:1400px">
+
+            <!-- Header -->
+            <header class="w3-container w3-center w3-padding-100 "> 
+                <h1><b>HOSPITAL</b></h1>
+                <p>Help find a <span class="w3-tag">Cure</span></p>
+            </header>
+
+            <!-- Grid -->
+            <div class="w3-row">
+
+                <!-- Blog entries -->
+                <div class="w3-col l8 s12">
+                    <!-- Blog entry -->
+
+
+                    <hr>
+
+                    <!-- Blog entry -->
+                    <div class="w3-card-4 w3-margin w3-white">
+                        <img src="../clinic.jpg.jpg" alt="KLINIK" style="width:100%">
+                        <div class="w3-container">
+                            <h5>Daftar Klinik <span class="w3-opacity">April 2, 2014</span></h5>
+                        </div>
+                        <div id="tampil1"></div>
+                        <div class="w3-container">
+
+                            <div class="w3-row">
+                                <div class="w3-col m8 s12">
+                                    <p><button class="w3-button w3-padding-large w3-white w3-border" onclick="loadDocKlinik()()"><b>CHECK »</b></button></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w3-card-4 w3-margin w3-white">
+                        <img src="../doctor.jpg" alt="DOKTER" style="width:100%">
+                        <div class="w3-container">
+                            <h5>Daftar Dokter :<span class="w3-opacity">April 2, 2014</span></h5>
+                        </div>
+                        <div id="tampil2"></div>
+                        <div class="w3-container">
+                            <div id="tampil1"></div>
+                            <div class="w3-row">
+                                <div class="w3-col m8 s12">
+                                    <p><button class="w3-button w3-padding-large w3-white w3-border" onclick="loadDocDokter()"><b>CHECK »</b></button></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w3-card-4 w3-margin w3-white">
+
+                        <img src="../antrian.jpg" style="width:100%">
+                        <div class="w3-container">
+                            <h5>Daftar Antrian : <span class="w3-opacity">April 7, 2014</span></h5>
+
+                        </div>
+                        <div id="antrian"></div>
+                        <div class="w3-container">
+
+
+                            <div class="w3-row">
+                                <div class="w3-col m8 s12">
+                                    <p><button class="w3-button w3-padding-large w3-white w3-border" onclick="loadDocAntrian()"><b>Check »</b></button></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w3-card-4 w3-margin w3-white">
+                        <img src="../th.jpg" alt="MAP" style="width:100%">
+                        <div class="w3-container">
+                            <h5>Lokasi Rumah Sakit : <span class="w3-opacity">April 7, 2014</span></h5>
+
+                        </div>
+                        <div id="map"></div>
+                        <div class="w3-container">
+
+
+                            <div class="w3-row">
+                                <div class="w3-col m8 s12">
+                                    <p><button class="w3-button w3-padding-large w3-white w3-border"><a href="frontpage.html"><b>Check »</b></button></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END BLOG ENTRIES -->
+                </div>
+
+                <!-- Introduction menu -->
+                <div class="w3-col l4">
+                    <!-- About Card -->
+                    <div class="w3-card w3-margin w3-margin-top">
+
+                        <img src="../logo.jpg" style="width:100%">
+                        <div class="w3-container w3-white">
+                            <h4><b>About</b></h4>
+                            <p>A hospital is a health care institution providing patient treatment with specialized medical and nursing staff and medical equipment.[.</p>
+                        </div>
+                    </div><hr>
+
+                    <!-- Posts -->
+                    <div class="w3-card w3-margin">
+                        <div class="w3-container w3-padding">
+                            <h4>Menu</h4>
+                        </div>
+                        <ul class="w3-ul w3-hoverable w3-white">
+                            <li class="w3-padding-16"> <a href="home.html">
+                                    <span class="w3-large">Home</span><br>
+                                    <span >Halaman Utama</span></a>
+                            </li>
+                            <li class="w3-padding-16"> <a href="cari.html">
+                                    <span class="w3-large">Cari</span><br>
+                                    <span>Cari Pasien</span></a>
+                            </li> 
+                            <li class="w3-padding-16"> <a href="pendaftaran.html">
+                                    <span class="w3-large">Daftar</span><br>
+                                    <span>Mendaftar Menjadi Pasien</span></a>
+                            </li>  
+                            <li class="w3-padding-16"> <a href="tambahAntrian.html">
+                                    <span class="w3-large">Tambah Antrian</span><br>
+                                    <span>Budayakan Antri</span></a>
+                            </li> 
+                            <li class="w3-padding-16"> <a href="tambahKlinik.html">
+                                    <span class="w3-large">Tambah Klinik</span><br>
+                                    <span>Tambah Klinik</span></a>
+                            </li> 
+                            <li class="w3-padding-16"> <a href="tambahDokter.html">
+                                    <span class="w3-large">Tambah Dokter</span><br>
+                                    <span>Bergabung menjadi Dokter</span></a>
+                            </li> 
+                        </ul>
+                    </div>
+
+
+
+                    <hr> 
+
+                    <!-- Labels / 
+                    <div class="w3-card w3-margin">
+                      <div class="w3-container w3-padding">
+                        <h4>Tags</h4>
+                      </div>
+                      <div class="w3-container w3-white">
+                      <p><span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">London</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">DIY</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Family</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Shopping</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Games</span>
+                      </p>
+                      </div>
+                    </div>
+                    tags -->
+                    <!-- END Introduction Menu -->
+                </div>
+
+                <!-- END GRID -->
+            </div><br>
+
+            <!-- END w3-content -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+
+        </footer>
+
+        <script>
+            var modal = document.getElementById('id01');
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+
+            function load() {
+                var email = b.value;
+                var pw = a.value;
+                var url = 'http://202.94.83.190:8080/165314021RS2/webresources/User/login1?email=' + email + '&password=' + pw;
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var user = JSON.parse(this.responseText);
+                        if (user !== null) {
+                            window.open("frontpage.html", "_self");
+                        } else {
+                            alert("Login Gagal");
+                        }
+
+                        document.getElementById("demo").innerHTML =
+                                this.responseText;
+                    }
+                };
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
+
+            function loadDocAntrian() {
+
+                var xmlhttp = new XMLHttpRequest();
+                var url = "http://202.94.83.190:8080/165314021RS3/webresources/Antrian";
+
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        myFunction(this.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+
+                function myFunction(response) {
+                    var arr = JSON.parse(response);
+                    var i;
+                    var out = "<table border='1'> <tr><td>Id Antrian</td><td>NoRM</td><td>Nama Pasien</td><td>Tanggal Periksa</td><td>Nama Klinik</td><td>Alamat</td></tr>";
+
+                    for (i = 0; i < arr.length; i++) {
+                        out += "<tr><td>" +
+                                arr[i].id +
+                                "</td><td>" +
+                                arr[i].noRm +
+                                "</td><td>" + arr[i].nama + "</td><td>" + arr[i].tanggal + "</td><td>" + arr[i].namaKlinik + "</td><td>" + arr[i].alamat + "</tr>";
+                    }
+                    out += "</table>";
+                    document.getElementById("antrian").innerHTML = out;
+                }
+            }
+
+
+            function loadDoc() {
+                var url = "http://202.94.83.190:8080/apilocation/webresources/Location ";
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo").innerHTML = this.responseText;
+                        var obj = JSON.parse(this.responseText);
+                        map = new google.maps.Map(document.getElementById('map'), {
+                            center: {lat: obj[0].lat, lng: obj[0].lng},
+                            zoom: 17
+                        });
+                        var marker = [];
+                        for (var i = 0; i < obj.length; i++) {
+                            marker[i] = new google.maps.Marker({position: {lat: obj[i].lat, lng: obj[i].lng}, map: map});
+                        }
+                    }
+                };
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
+
+
+            function loadDocKlinik() {
+                var xmlhttp = new XMLHttpRequest();
+                var url = "http://202.94.83.190:8080/165314028/webresources/Klinik";
+
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        myFunction(this.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+
+                function myFunction(response) {
+                    var arr = JSON.parse(response);
+                    var i;
+                    var out = "<table><tr><td>Nomor</td><td>Nama</td><td>Spesialis</td>";
+
+                    for (i = 0; i < arr.length; i++) {
+                        out += "<tr><td>" +
+                                arr[i].idKlinik + "</td><td>" + arr[i].nama + "</td><td>" +
+                                arr[i].spesialis;
+
+                    }
+                    out += "</table></center>";
+                    document.getElementById("tampil1").innerHTML = out;
+                }
+            }
+
+
+            function loadDocDokter() {
+                var xmlhttp = new XMLHttpRequest();
+                var url = "http://202.94.83.190:8080/165314028/webresources/Dokter";
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        myFunction(this.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+                function myFunction(response) {
+                    var arr = JSON.parse(response);
+                    var i;
+                    var out = "<table><tr><td>Nomor</td><td>Nama Dokter</td><td>Spesialis</td>";
+
+                    for (i = 0; i < arr.length; i++) {
+                        out += "<tr><td>" +
+                                arr[i].id + "</td><td>" + arr[i].nama + "</td><td>" +
+                                arr[i].spesialis;
+
+                    }
+                    out += "</table><";
+                    document.getElementById("tampil2").innerHTML = out;
+                }
+            }
+
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnD2l64I6G6fUkPpc3D79Jcau30v8xEKE&callback=initMap"
+        async defer></script>
+        <script>
+
+            // Get the modal
+            var modal = document.getElementById('id01');
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+
+</html>
